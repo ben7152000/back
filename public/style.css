@@ -1,0 +1,138 @@
+.title {
+  margin: 0 0 40px 0;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+  background-color: #1292EE;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #000;
+}
+
+.wrap {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  color: #fff;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 10px;
+  background-color: #030E22;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
+.sidebar-title {
+  margin: 10px 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.sidebar-content {
+  margin-top: 40px;
+}
+
+.sidebar-subtitle, 
+.sidebar-btn {
+  display: block;
+  margin: 0 0 20px 0;
+  color: #748494;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.sidebar-subtitle:hover,
+.sidebar-btn:hover {
+  color: #1292EE;
+}
+
+.snorkel-title,
+.freediving-title {
+  font-size: 20px;
+  color: #1292EE;
+  letter-spacing: 1px;
+  margin: 10px;
+}
+
+.snorkeling-form,
+.freediving-form {
+  width: 100%;
+  display: flex;
+}
+
+.snorkeling-input,
+.freediving-input {
+  width: 100%;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.snorkeling-input-image,
+.freediving-input-image {
+  width: 100%;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.snorkeling-image,
+.freediving-image {
+  width: 40px;
+  height: 40px;
+}
+
+.price {
+  color: #1292EE;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.snorkeling-btn,
+.freediving-btn {
+  font-weight: 700;
+  width: 70px;
+}
+
+.snorkeling-btn:hover,
+.freediving-btn:hover {
+  color: #fff;
+}
+
+.snorkeling-edit,
+.freediving-edit {
+  text-decoration: none;
+  color: #000;
+}
+
+.snorkeling-edit:hover,
+.freediving-edit:hover {
+  color: #fff;
+}

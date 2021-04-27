@@ -1,0 +1,94 @@
+<div class="col-10 snorkeling p-0">
+
+  <h4 class="freediving-title">自潛裝備</h4>
+
+  {{> alert}}
+
+  {{#if freediving}}
+    <form action="/freediving/{{ freediving.id }}?_method=PUT" method="POST"
+      class="bg-purple rounded shadow-sm freediving-form"
+      enctype="multipart/form-data">
+
+      <div class="d-flex m-2">
+        <input type="text" placeholder="名稱" name="title"
+          value="{{ freediving.title }}" class="form-control freediving-input">
+        <input type="text" placeholder="售價" name="price"
+          value="{{ freediving.price }}" class="form-control freediving-input">
+        <input type="file" placeholder="圖片" name="image"
+          class="form-control freediving-input-image">
+      </div>
+
+      <div class="btn-group">
+        <button type="submit" class="btn freediving-btn">更新</button>
+        <a href="/freediving">
+          <button type="button" class="btn freediving-btn">
+            建立
+          </button>
+        </a>
+      </div>
+
+    </form>
+  {{else}}
+    <form action="/freediving" method="POST"
+      class="bg-purple rounded shadow-sm freediving-form"
+      enctype="multipart/form-data">
+
+      <div class="d-flex m-2">
+        <input type="text" placeholder="名稱" name="title"
+          class="form-control freediving-input">
+        <input type="text" placeholder="售價" name="price"
+          class="form-control freediving-input">
+        <input type="file" placeholder="圖片" name="image"
+          class="form-control freediving-input-image">
+      </div>
+
+      <div class="btn-group">
+        <button type="submit" class="btn freediving-btn">
+          送出
+        </button>
+      </div>
+
+    </form>
+  {{/if}}
+
+  <table class="table table-hover table-bordered align-middle mx-auto mt-4"
+    style="max-width: 1000px;">
+
+    <thead class="table-dark">
+      <tr>
+        <th scope="col" style="width: 50px;">id</th>
+        <th scope="col" style="width: 200px;">裝備名稱</th>
+        <th scope="col" style="width: 200px;">售價</th>
+        <th scope="col" style="width: 100px;">圖片</th>
+        <th scope="col">#</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each freedivings}}
+        <tr>
+          <th scope="row">{{ this.id }}</th>
+          <td>{{ this.title }}</td>
+          <td class="price">{{ this.price }}</td>
+          <td><img src="{{ this.image }}" alt="{{ this.title }}"
+              class="freediving-image"></td>
+          <td>
+            <a href="/freediving/{{ this.id }}" class="freediving-edit"><button
+                type="button" class="btn freediving-btn">
+                編輯
+              </button>
+            </a>
+            <form action="/freediving/{{ this.id }}?_method=DELETE"
+              method="POST" style="display: inline;">
+              <button type="submit" class="btn freediving-btn">
+                刪除
+              </button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+
+  </table>
+
+</div>
