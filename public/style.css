@@ -76,13 +76,15 @@ hr {
   font-size: 20px;
   color: #1292EE;
   letter-spacing: 1px;
-  margin: 10px;
+  margin: 10px 0 10px 30px;
 }
 
 .snorkeling-form,
 .freediving-form {
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .snorkeling-input,

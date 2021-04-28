@@ -35,7 +35,7 @@ const adminController = {
         return Snorkeling.create({
           title,
           price,
-          image: file ? img.data.link : null
+          image: img.data.link
         }).then(() => {
           req.flash('success_messages', '裝備建立成功')
           return res.redirect('/snorkeling')
@@ -68,7 +68,7 @@ const adminController = {
             snorkeling.update({
               title,
               price,
-              image: file ? img.data.link : null
+              image: img.data.link
             })
           })
           .then(() => {
@@ -82,7 +82,7 @@ const adminController = {
           snorkeling.update({
             title,
             price,
-            image: null
+            image: snorkeling.image
           })
         })
         .then(() => {
@@ -119,7 +119,7 @@ const adminController = {
         return Freediving.create({
           title,
           price,
-          image: file ? img.data.link : null
+          image: img.data.link
         }).then(() => {
           req.flash('success_messages', '裝備建立成功')
           return res.redirect('/freediving')
@@ -152,7 +152,7 @@ const adminController = {
             freediving.update({
               title,
               price,
-              image: file ? img.data.link : null
+              image: img.data.link
             })
           })
           .then(() => {
@@ -166,7 +166,7 @@ const adminController = {
           freediving.update({
             title,
             price,
-            image: null
+            image: freediving.image
           })
         })
         .then(() => {
