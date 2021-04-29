@@ -7,12 +7,15 @@ const bodyParser = require('body-parser')
 const flash = require('connect-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const cors = require('cors')
+const favicon = require('express-favicon')
 const userPassport = require('./config/passport')
 
 const app = express()
 const PORT = process.env.PORT || 3000
 
 app.use('/upload', express.static(__dirname + '/upload'))
+app.use(favicon(__dirname + '/public/favicon.ico'))
 
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
@@ -25,6 +28,8 @@ app.use(session({ secret: 'Secret', resave: false, saveUninitialized: false }))
 app.use(flash())
 
 app.use(methodOverride('_method'))
+
+app.use(cors())
 
 userPassport(app)
 
