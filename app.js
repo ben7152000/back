@@ -14,6 +14,8 @@ const userPassport = require('./config/passport')
 const app = express()
 const PORT = process.env.PORT || 3000
 
+app.use(cors())
+
 app.use('/upload', express.static(__dirname + '/upload'))
 app.use(favicon(__dirname + '/public/favicon.ico'))
 
@@ -28,8 +30,6 @@ app.use(session({ secret: 'Secret', resave: false, saveUninitialized: false }))
 app.use(flash())
 
 app.use(methodOverride('_method'))
-
-app.use(cors())
 
 userPassport(app)
 

@@ -26,24 +26,26 @@ const checkAccount = (req, res, next) => {
 
 const authenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
+    console.log('get')
     return next()
   }
+  console.log('no get')
   res.redirect('/signin')
 }
 
 router.get('/', (req, res) => res.redirect('/signin'))
 
 router.get('/snorkeling', authenticated, adminController.getSnorekling)
-router.post('/snorkeling', authenticated, upload.single('image'), adminController.postSnorekling)
-router.get('/snorkeling/:id', authenticated, adminController.getSnorekling)
-router.put('/snorkeling/:id', authenticated, upload.single('image'), adminController.putSnorekling)
-router.delete('/snorkeling/:id', authenticated, adminController.deleteSnorekling)
+router.post('/snorkeling', upload.single('image'), adminController.postSnorekling)
+router.get('/snorkeling/:id', adminController.getSnorekling)
+router.put('/snorkeling/:id', upload.single('image'), adminController.putSnorekling)
+router.delete('/snorkeling/:id', adminController.deleteSnorekling)
 
-router.get('/freediving', authenticated, adminController.getFreeDiving)
-router.post('/freediving', authenticated, upload.single('image'), adminController.postFreeDiving)
-router.get('/freediving/:id', authenticated, adminController.getFreeDiving)
-router.put('/freediving/:id', authenticated, upload.single('image'), adminController.putFreeDiving)
-router.delete('/freediving/:id', authenticated, adminController.deleteFreeDiving)
+router.get('/freediving', adminController.getFreeDiving)
+router.post('/freediving', upload.single('image'), adminController.postFreeDiving)
+router.get('/freediving/:id', adminController.getFreeDiving)
+router.put('/freediving/:id', upload.single('image'), adminController.putFreeDiving)
+router.delete('/freediving/:id', adminController.deleteFreeDiving)
 
 router.get('/signin', adminController.signInPage)
 router.post('/signin', checkAccount, passport.authenticate('local', { failureRedirect: '/signin', failureFlash: true }), adminController.signIn)
