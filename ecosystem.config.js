@@ -15,14 +15,15 @@ module.exports = {
 
   deploy: {
     production: {
-      user: 'SSH_USERNAME',
-      host: 'SSH_HOSTMACHINE',
+      user: 'ec2-user',
+      host: ['16.162.62.160'],
       ref: 'origin/master',
-      repo: 'GIT_REPOSITORY',
-      path: 'DESTINATION_PATH',
-      'pre-deploy-local': '',
+      repo: 'git@github.com:ben7152000/back.git',
+      path: '/home/ec2-user/back',
       'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production',
-      'pre-setup': ''
+      env: {
+        NODE_ENV: 'production'
+      }
     }
   }
 }
