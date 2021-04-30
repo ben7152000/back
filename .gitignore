@@ -14,5 +14,3 @@ node_modules
 *.gz
 
 .vscode
-temp
-upload
