@@ -42,6 +42,8 @@ app.use((req, res, next) => {
 
 require('./routes')(app)
 
+console.log(process.env.NODE_ENV, 'NODE_ENV')
+
 app.listen(PORT, () => {
   console.log(`The server is running on localhost:${PORT}`)
 })
