@@ -8,7 +8,6 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const cors = require('cors')
-const path = require('path')
 const favicon = require('express-favicon')
 const userPassport = require('./config/passport')
 
@@ -17,7 +16,6 @@ const PORT = process.env.PORT || 3000
 
 app.use(cors())
 
-app.use(express.static(__dirname + '/temp'))
 app.use('/upload', express.static(__dirname + '/upload'))
 app.use(favicon(__dirname + '/public/favicon.ico'))
 

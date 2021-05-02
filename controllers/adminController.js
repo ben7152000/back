@@ -22,6 +22,24 @@ const adminController = {
       return res.render('snorkeling', data)
     })
   },
+  // postSnorekling: async (req, res) => {
+  //   const { title, price } = req.body
+  //   const { file } = req
+  //   try {
+  //     if (file) {
+  //       await Snorkeling.create({
+  //         title,
+  //         price,
+  //         image: file.buffer
+  //       })
+  //       req.flash('success_messages', '裝備建立成功')
+  //       return res.redirect('/snorkeling')
+  //     }
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // },
+
   postSnorekling: (req, res) => {
     const { title, price } = req.body
     const { file } = req

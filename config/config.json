@@ -2,14 +2,14 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "longdongcape",
+    "database": "longdong",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "password",
-    "database": "longdongcape_test",
+    "database": "longdong_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
