@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development nodemon app.js",
     "start": "NODE_ENV=production node app.js",
     "seeder": "NODE_ENV=production npx sequelize db:seed:all",
-    "pm2-start": "pm2 start npm -c '0 0 * * *' --name production -- start"
+    "pm2-start": "pm2 start npm -c '0 0 * * *' --name longdong-back -- start"
   },
   "keywords": [],
   "author": "Ben",
