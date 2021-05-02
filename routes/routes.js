@@ -3,17 +3,6 @@ const passport = require('passport')
 const router = express.Router()
 
 const multer = require('multer')
-// const upload = multer({
-//   limit: {
-//     fileSize: 1000000
-//   },
-//   fileFilter (req, file, cb) {
-//     if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
-//       cb(new Error('Please upload an image'))
-//     }
-//     cb(null, true)
-//   }
-// })
 const upload = multer({ dest: 'temp/' })
 
 const adminController = require('../controllers/adminController')

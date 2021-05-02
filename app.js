@@ -21,7 +21,7 @@ app.use(favicon(__dirname + '/public/favicon.ico'))
 
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

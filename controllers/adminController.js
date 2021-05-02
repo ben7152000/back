@@ -1,7 +1,6 @@
 const db = require('../models')
 const { Snorkeling, Freediving } = db
-const imgur = require('imgur-node-api')
-const IMGUR_CLIENT_ID = process.env.IMGUR_CLIENT_ID
+const fs = require('fs')
 const adminService = require('../services/adminService')
 
 const adminController = {
@@ -22,24 +21,6 @@ const adminController = {
       return res.render('snorkeling', data)
     })
   },
-  // postSnorekling: async (req, res) => {
-  //   const { title, price } = req.body
-  //   const { file } = req
-  //   try {
-  //     if (file) {
-  //       await Snorkeling.create({
-  //         title,
-  //         price,
-  //         image: file.buffer
-  //       })
-  //       req.flash('success_messages', '裝備建立成功')
-  //       return res.redirect('/snorkeling')
-  //     }
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // },
-
   postSnorekling: (req, res) => {
     const { title, price } = req.body
     const { file } = req
@@ -48,15 +29,16 @@ const adminController = {
       return res.redirect('/snorkeling')
     }
     if (file) {
-      imgur.setClientID(IMGUR_CLIENT_ID)
-      imgur.upload(file.path, (err, img) => {
-        return Snorkeling.create({
-          title,
-          price,
-          image: img.data.link
-        }).then(() => {
-          req.flash('success_messages', '裝備建立成功')
-          return res.redirect('/snorkeling')
+      fs.readFile(file.path, (err, data) => {
+        fs.writeFile(`upload/${file.originalname}`, data, () => {
+          return Snorkeling.create({
+            title,
+            price,
+            image: `/upload/${file.originalname}`
+          }).then(() => {
+            req.flash('success_messages', '裝備建立成功')
+            return res.redirect('/snorkeling')
+          })
         })
       })
     } else {
@@ -79,20 +61,21 @@ const adminController = {
       return res.redirect('/snorkeling')
     }
     if (file) {
-      imgur.setClientID(IMGUR_CLIENT_ID)
-      imgur.upload(file.path, (err, img) => {
-        return Snorkeling.findByPk(id)
-          .then((snorkeling) => {
-            snorkeling.update({
-              title,
-              price,
-              image: img.data.link
+      fs.readFile(file.path, (err, data) => {
+        fs.writeFile(`upload/${file.originalname}`, data, () => {
+          return Snorkeling.findByPk(id)
+            .then((snorkeling) => {
+              snorkeling.update({
+                title,
+                price,
+                image: `/upload/${file.originalname}`
+              })
             })
-          })
-          .then(() => {
-            req.flash('success_messages', '裝備更新成功')
-            return res.redirect('/snorkeling')
-          })
+            .then(() => {
+              req.flash('success_messages', '裝備更新成功')
+              return res.redirect('/snorkeling')
+            })
+        })
       })
     } else {
       return Snorkeling.findByPk(id)
@@ -132,15 +115,16 @@ const adminController = {
       return res.redirect('/freediving')
     }
     if (file) {
-      imgur.setClientID(IMGUR_CLIENT_ID)
-      imgur.upload(file.path, (err, img) => {
-        return Freediving.create({
-          title,
-          price,
-          image: img.data.link
-        }).then(() => {
-          req.flash('success_messages', '裝備建立成功')
-          return res.redirect('/freediving')
+      fs.readFile(file.path, (err, data) => {
+        fs.writeFile(`upload/${file.originalname}`, data, () => {
+          return Freediving.create({
+            title,
+            price,
+            image: `/upload/${file.originalname}`
+          }).then(() => {
+            req.flash('success_messages', '裝備建立成功')
+            return res.redirect('/freediving')
+          })
         })
       })
     } else {
@@ -153,6 +137,28 @@ const adminController = {
         return res.redirect('/freediving')
       })
     }
+    // if (file) {
+    //   imgur.setClientID(IMGUR_CLIENT_ID)
+    //   imgur.upload(file.path, (err, img) => {
+    //     return Freediving.create({
+    //       title,
+    //       price,
+    //       image: img.data.link
+    //     }).then(() => {
+    //       req.flash('success_messages', '裝備建立成功')
+    //       return res.redirect('/freediving')
+    //     })
+    //   })
+    // } else {
+    //   return Freediving.create({
+    //     title,
+    //     price,
+    //     image: null
+    //   }).then(() => {
+    //     req.flash('success_messages', '裝備建立成功')
+    //     return res.redirect('/freediving')
+    //   })
+    // }
   },
   putFreeDiving: (req, res) => {
     const { title, price } = req.body
@@ -163,20 +169,21 @@ const adminController = {
       return res.redirect('/freediving')
     }
     if (file) {
-      imgur.setClientID(IMGUR_CLIENT_ID)
-      imgur.upload(file.path, (err, img) => {
-        return Freediving.findByPk(id)
-          .then((freediving) => {
-            freediving.update({
-              title,
-              price,
-              image: img.data.link
+      fs.readFile(file.path, (err, data) => {
+        fs.writeFile(`upload/${file.originalname}`, data, () => {
+          return Freediving.findByPk(id)
+            .then((freediving) => {
+              freediving.update({
+                title,
+                price,
+                image: `/upload/${file.originalname}`
+              })
             })
-          })
-          .then(() => {
-            req.flash('success_messages', '裝備更新成功')
-            return res.redirect('/freediving')
-          })
+            .then(() => {
+              req.flash('success_messages', '裝備更新成功')
+              return res.redirect('/freediving')
+            })
+        })
       })
     } else {
       return Freediving.findByPk(id)
