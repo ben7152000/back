@@ -12,7 +12,7 @@ const favicon = require('express-favicon')
 const userPassport = require('./config/passport')
 
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8081
 
 app.use(cors())
 
