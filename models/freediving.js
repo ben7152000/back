@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   Freediving.init({
     title: DataTypes.STRING,
     price: DataTypes.STRING,
-    imageUrl: DataTypes.BLOB
+    image: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Freediving'
