@@ -34,7 +34,7 @@ const adminController = {
           return Snorkeling.create({
             title,
             price,
-            image: `https://localhost:8081/upload/${file.originalname}`
+            image: `http://localhost:8081/upload/${file.originalname}`
           }).then(() => {
             req.flash('success_messages', '裝備建立成功')
             return res.redirect('/snorkeling')
@@ -68,7 +68,7 @@ const adminController = {
               snorkeling.update({
                 title,
                 price,
-                image: `https://localhost:8081/upload/${file.originalname}`
+                image: `http://localhost:8081/upload/${file.originalname}`
               })
             })
             .then(() => {
@@ -120,7 +120,7 @@ const adminController = {
           return Freediving.create({
             title,
             price,
-            image: `https://localhost:8081/upload/${file.originalname}`
+            image: `http://localhost:8081/upload/${file.originalname}`
           }).then(() => {
             req.flash('success_messages', '裝備建立成功')
             return res.redirect('/freediving')
@@ -176,7 +176,7 @@ const adminController = {
               freediving.update({
                 title,
                 price,
-                image: `https://localhost:8081/upload/${file.originalname}`
+                image: `http://localhost:8081/upload/${file.originalname}`
               })
             })
             .then(() => {
