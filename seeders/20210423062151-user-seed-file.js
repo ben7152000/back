@@ -14,7 +14,7 @@ module.exports = {
     //     id: '1',
     //     title: '一般蛙鏡',
     //     price: '70',
-    //     image: '/img/一般蛙鏡 $70 有度蛙鏡 $100.png',
+    //     image: 'http://localhost:8081/upload/一般蛙鏡 $70 有度蛙鏡 $100.png',
     //     createdAt: new Date(),
     //     updatedAt: new Date()
     //   },
@@ -22,7 +22,7 @@ module.exports = {
     //     id: '2',
     //     title: '有度蛙鏡',
     //     price: '100',
-    //     image: 'https://i.imgur.com/mACvmJl.png',
+    //     image: 'http://localhost:8081/upload/一般蛙鏡 $70 有度蛙鏡 $100.png',
     //     createdAt: new Date(),
     //     updatedAt: new Date()
     //   },
@@ -30,7 +30,7 @@ module.exports = {
     //     id: '3',
     //     title: '泳鏡',
     //     price: '50',
-    //     image: 'https://i.imgur.com/heivYO1.jpg',
+    //     image: 'http://localhost:8081/upload/泳鏡 $50.jpg',
     //     createdAt: new Date(),
     //     updatedAt: new Date()
     //   },
