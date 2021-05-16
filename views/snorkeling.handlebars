@@ -67,9 +67,9 @@
 
     <tbody>
 
-      {{#each snorkelings}}
+      {{#each snorkelings as |item i|}}
         <tr>
-          <th scope="row">{{ this.id }}</th>
+          <th scope="row">{{ math i 1 }}</th>
           <td>{{ this.title }}</td>
           <td class="price">{{ this.price }}</td>
           <td><img src="{{ this.image }}" alt="{{ this.title }}"

@@ -19,7 +19,12 @@ app.use(cors())
 app.use('/upload', express.static(__dirname + '/upload'))
 app.use(favicon(__dirname + '/public/favicon.ico'))
 
-app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
+app.engine('handlebars', handlebars({
+  defaultLayout: 'main',
+  helpers: {
+    math: function (a, b) { return a + b }
+  }
+}))
 app.set('view engine', 'handlebars')
 app.use(express.static(__dirname + '/public'))
 
